@@ -1,0 +1,26 @@
+{
+  "name": "rhubarbphp/module-textmarketer",
+  "description": "Provides an sms provider for textmarketer.com",
+  "keywords": [
+    "sms",
+    "textmarketer",
+    "rhubarb",
+    "php",
+    "framework"
+  ],
+  "homepage": "http://www.rhubarbphp.com/",
+  "license": "Apache-2.0",
+  "autoload": {
+    "psr-4": {
+      "Rhubarb\\TextMarketerSms\\": "src/",
+      "Rhubarb\\TextMarketerSms\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "rhubarbphp/rhubarb": "feature/SMSProvider-dev"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "3.*"
+  }
+}
+
