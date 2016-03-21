@@ -16,11 +16,18 @@
       "Rhubarb\\TextMarketerSms\\Tests\\": "tests/"
     }
   },
+  "minimum-stability": "dev",
   "require": {
-    "rhubarbphp/rhubarb": "feature/SMSProvider-dev"
+    "rhubarbphp/module-sms": "master-dev"
   },
   "require-dev": {
     "phpunit/phpunit": "3.*"
-  }
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/RhubarbPHP/Module.Sms.git"
+    }
+  ]
 }
 

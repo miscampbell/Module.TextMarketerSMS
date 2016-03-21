@@ -6,7 +6,7 @@ use Rhubarb\Crown\Exceptions\SettingMissingException;
 use Rhubarb\Crown\Http\CurlHttpClient;
 use Rhubarb\Crown\Http\HttpRequest;
 use Rhubarb\Crown\Sendables\Sendable;
-use Rhubarb\Crown\Sendables\SMS\SMSProvider;
+use Rhubarb\Sms\Sendables\Sms\SmsProvider;
 use Rhubarb\TextMarketerSms\Settings\TextMarketerSettings;
 
 class TextMarketerSmsProvider extends SMSProvider
