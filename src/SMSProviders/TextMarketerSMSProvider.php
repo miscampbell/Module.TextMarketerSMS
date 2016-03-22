@@ -32,7 +32,8 @@ class TextMarketerSmsProvider extends SMSProvider
         $payload = [
             "message" => $sendable->getText(),
             "username" => $username,
-            "password" => $password
+            "password" => $password,
+            "originator" => $sendable->getSender()->name
         ];
 
 
