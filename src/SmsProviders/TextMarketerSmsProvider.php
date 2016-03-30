@@ -6,6 +6,7 @@ use Rhubarb\Crown\Exceptions\SettingMissingException;
 use Rhubarb\Crown\Http\CurlHttpClient;
 use Rhubarb\Crown\Http\HttpRequest;
 use Rhubarb\Crown\Sendables\Sendable;
+use Rhubarb\Sms\Sendables\Sms\Sms;
 use Rhubarb\Sms\Sendables\Sms\SmsProvider;
 use Rhubarb\TextMarketerSms\Settings\TextMarketerSettings;
 
@@ -16,17 +17,18 @@ class TextMarketerSmsProvider extends SMSProvider
     public function send(Sendable $sendable)
     {
         /**
-         * @var TextMarketerSettings
+         * @var Sms $sendable
          */
-        $settings = new TextMarketerSettings();
-        $username = $settings->Username;
-        $password = $settings->Password;
+
+        $settings = TextMarketerSettings::singleton();
+        $username = $settings->username;
+        $password = $settings->password;
 
         if ($username === null) {
-            throw new SettingMissingException(TextMarketerSettings::class, "Username");
+            throw new SettingMissingException(TextMarketerSettings::class, "username");
         }
         if ($password === null) {
-            throw new SettingMissingException(TextMarketerSettings::class, "Password");
+            throw new SettingMissingException(TextMarketerSettings::class, "password");
         }
 
         $payload = [
@@ -36,13 +38,12 @@ class TextMarketerSmsProvider extends SMSProvider
             "originator" => $sendable->getSender()->name
         ];
 
-
         foreach ($sendable->getRecipients() as $smsNumber) {
             $tempPayload = ["mobile_number" => $smsNumber->number];
 
             $smsRequest = new HttpRequest(self::BASE_URL, "post", array_merge($payload, $tempPayload));
             $client = new CurlHttpClient($smsRequest);
-            $response = $client->getResponse($smsRequest);
+            $client->getResponse($smsRequest);
         }
     }
 }
