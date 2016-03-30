@@ -5,12 +5,11 @@ namespace Rhubarb\TextMarketerSms\Settings;
 use Rhubarb\Crown\Settings;
 
 /**
- * Settings for the TextMarketerSMSProvider
- * @property string $Username
- * @property string $Password
- *
+ * Settings for the TextMarketerSmsProvider
  */
 class TextMarketerSettings extends Settings
 {
+    public $username = "";
 
+    public $password = "";
 }

@@ -16,12 +16,12 @@
       "Rhubarb\\TextMarketerSms\\Tests\\": "tests/"
     }
   },
-  "minimum-stability": "dev",
   "require": {
-    "rhubarbphp/module-sms": "master-dev"
+    "rhubarbphp/module-sms": "master-dev",
+    "rhubarbphp/rhubarb": "dev-feature/ApplicationObject"
   },
   "require-dev": {
-    "phpunit/phpunit": "3.*"
+    "codeception/codeception": "^2"
   },
   "repositories": [
     {
